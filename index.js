@@ -178,8 +178,29 @@ function lowerCaseStrings(strings) {
  * 
  * [2] Invoking `isItAnApple` with `['a', 'b', 'c' ]` will return `[ false, false, false ]`.
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+
+// function isItAnApple(array) {
+//   let newArray = [];
+//   for (let i=0; i < array.length; i++) { 
+//     if (array[i] === 'apple') {
+//       newArray.push(true);
+//     }
+//     else {
+//       newArray.push(false);
+//     }
+//   }
+//   return newArray;
+// }
+function isItAnApple(strings) {
+  let newArray = strings.map(function cb(item) {
+    if (item === 'apple') {
+      return true;
+    }
+    else {
+      return false;
+    }
+  })
+  return newArray;  
 }
 
 /**
@@ -198,9 +219,13 @@ function isItAnApple(/* code here */) {
  * 
  * [2] Invoking `removeApple` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
 */
-function removeApple(/* code here */) {
-  /* code here */
+function removeApple(strings) {
+  let newArray = strings.filter(function (item) {
+    return item !== 'apple';
+  })
+return newArray
 }
+
 
 /**
  * ### Challenge `stringSmash`
@@ -217,9 +242,12 @@ function removeApple(/* code here */) {
  * 
  * [2] Invoking `stringSmash` with `['a', 'b', 'c' ]` will return `abc`.
 */
-function stringSmash(/* code here */) {
-  /* code here */
+function stringSmash(strings) {
+  return strings.reduce(function(result, item){
+    return result + item;
+  })
 }
+
 
 // A local community center is holding a fund raising 5k fun run and has invited
 // 50 small businesses to make a small donation on their behalf for some much needed
@@ -236,9 +264,16 @@ function stringSmash(/* code here */) {
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
-}
+//   { id: 1, first_name: "Charmain", last_name: "Seiler", email: "cseiler0@wired.com", shirt_size: "2XL", company_name: "Divanoodle", donation: 75 },
+
+function getFullNames(runners) {
+  let newArray = [];
+  runners.forEach(function(item) {
+  newArray.push(`${item.last_name}, ${item.first_name}`);
+  })
+  return newArray;
+}  
+
 
 /**
  * ### Challenge `firstNamesAllCaps`
@@ -252,8 +287,11 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+  let newArray = runners.map(function(item){
+    return item.first_name.toUpperCase();
+  })
+  return newArray;
 }
 
 /**
@@ -299,6 +337,7 @@ function tallyUpDonations(/* CODE HERE */) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ *    
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
