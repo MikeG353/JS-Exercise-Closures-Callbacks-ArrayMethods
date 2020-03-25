@@ -337,12 +337,14 @@ function tallyUpDonations(/* CODE HERE */) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- *    
- * 
+ *    counter 1 is a HOF 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ *    Both kind of? in a closed environment counter 2 would have global scope on the count variable
+ *    while counter 1's count belongs to countMaker()
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *    counter 1's count is more restricted and less likely to be ovewritten. maybe good for a timer.
+ *    counter 2 can be increased from anaywhere in the code, so if multiple functions need to accumulate 
+ *    the same value it might be useful?
 */
 
 // counter1 code
